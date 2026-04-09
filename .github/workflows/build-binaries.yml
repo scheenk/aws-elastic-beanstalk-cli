@@ -35,6 +35,12 @@ jobs:
           pyinstaller --onefile --name eb-${{ matrix.name }} \
             --hidden-import ebcli.core.ebcore \
             --hidden-import ebcli.controllers \
+            --hidden-import cement.ext.ext_dummy \
+            --hidden-import cement.ext.ext_json \
+            --hidden-import cement.ext.ext_logging \
+            --hidden-import cement.ext.ext_argparse \
+            --hidden-import cement.ext.ext_plugin \
+            --collect-all cement \
             --collect-data ebcli \
             --copy-metadata awsebcli \
             --copy-metadata botocore \
