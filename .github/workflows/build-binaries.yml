@@ -31,6 +31,7 @@ jobs:
 
       - name: Build binary
         run: |
+          echo "from ebcli.core.ebcore import main; main()" > eb_entry.py
           pyinstaller --onefile --name eb-${{ matrix.name }} \
             --hidden-import ebcli.core.ebcore \
             --hidden-import ebcli.controllers \
@@ -38,7 +39,7 @@ jobs:
             --copy-metadata awsebcli \
             --copy-metadata botocore \
             --copy-metadata setuptools \
-            ebcli/core/ebcore.py
+            eb_entry.py
         shell: bash
 
       - name: Smoke test
