@@ -26,7 +26,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install -r requirements.txt
+          pip install .
           pip install pyinstaller
 
       - name: Build binary
@@ -36,6 +36,8 @@ jobs:
             --hidden-import ebcli.controllers \
             --collect-data ebcli \
             --copy-metadata awsebcli \
+            --copy-metadata botocore \
+            --copy-metadata setuptools \
             ebcli/core/ebcore.py
         shell: bash
 
