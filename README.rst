@@ -27,7 +27,9 @@ Quick Install (Recommended)
 
     curl -sSL https://raw.githubusercontent.com/aws/aws-elastic-beanstalk-cli/master/install.sh | bash
 
-**Windows** — download ``eb-windows-x86_64.exe`` from the `latest release <https://github.com/aws/aws-elastic-beanstalk-cli/releases/latest>`__, rename to ``eb.exe``, and add to your PATH.
+**Windows** (PowerShell)::
+
+    Invoke-WebRequest -Uri https://github.com/aws/aws-elastic-beanstalk-cli/releases/latest/download/eb-windows-x86_64.exe -OutFile eb.exe
 
 **Verify**::
 
