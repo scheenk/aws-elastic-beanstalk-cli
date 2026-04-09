@@ -48,8 +48,18 @@ jobs:
             eb_entry.py
         shell: bash
 
-      - name: Smoke test
-        run: ./dist/eb-${{ matrix.name }}* --version
+      - name: Smoke test (Unix)
+        if: runner.os != 'Windows'
+        run: |
+          ./dist/eb-${{ matrix.name }} --version
+          ./dist/eb-${{ matrix.name }} --help
+        shell: bash
+
+      - name: Smoke test (Windows)
+        if: runner.os == 'Windows'
+        run: |
+          ./dist/eb-${{ matrix.name }}.exe --version
+          ./dist/eb-${{ matrix.name }}.exe --help
         shell: bash
 
       - uses: actions/upload-artifact@v4

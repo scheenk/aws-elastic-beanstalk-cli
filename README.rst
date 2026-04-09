@@ -20,10 +20,32 @@ Installation
 ============
 
 -------------------------------
-If you'd like to use the EB CLI
+Quick Install (Recommended)
 -------------------------------
 
-The easiest and recommended way to install the EB CLI is to use the EB CLI setup scripts available on a separate GitHub repository.
+**Linux / macOS** — single command, no Python required::
+
+    curl -sSL https://raw.githubusercontent.com/aws/aws-elastic-beanstalk-cli/master/install.sh | bash
+
+**Windows** — download ``eb-windows-x86_64.exe`` from the `latest release <https://github.com/aws/aws-elastic-beanstalk-cli/releases/latest>`__, rename to ``eb.exe``, and add to your PATH.
+
+**Verify**::
+
+    eb --version
+
+-------------------------------
+Install via pip (Alternative)
+-------------------------------
+
+If you prefer pip::
+
+    pip install awsebcli
+
+-------------------------------
+If you'd like to use the EB CLI setup scripts
+-------------------------------
+
+The EB CLI setup scripts are available on a separate GitHub repository.
 Use the scripts to install the EB CLI on Linux, macOS, or Windows. The scripts install the EB CLI and its dependencies, including Python and pip.
 The scripts also create a virtual environment for the EB CLI.
 For installation instructions, see the `aws/aws-elastic-beanstalk-cli-setup <https://github.com/aws/aws-elastic-beanstalk-cli-setup>`__ repository. 
