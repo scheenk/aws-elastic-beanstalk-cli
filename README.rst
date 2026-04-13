@@ -25,7 +25,7 @@ Quick Install (Recommended)
 
 **Linux / macOS** — single command, no Python required::
 
-    curl -sSL https://raw.githubusercontent.com/aws/aws-elastic-beanstalk-cli/master/install.sh | bash
+    curl -sSL https://raw.githubusercontent.com/aws/aws-elastic-beanstalk-cli/master/install.sh | sh
 
 **Windows** (PowerShell)::
 

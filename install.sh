@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 set -e
 
 REPO="scheenk/aws-elastic-beanstalk-cli"
@@ -25,7 +25,7 @@ EXPECTED=$(grep "$BINARY" /tmp/checksums.txt | awk '{print $1}')
 if [ -z "$EXPECTED" ]; then
   echo "Warning: no checksum found for $BINARY, skipping verification"
 else
-  if command -v sha256sum &>/dev/null; then
+  if command -v sha256sum >/dev/null 2>&1; then
     ACTUAL=$(sha256sum /tmp/eb-cli.tar.gz | awk '{print $1}')
   else
     ACTUAL=$(shasum -a 256 /tmp/eb-cli.tar.gz | awk '{print $1}')
