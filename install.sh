@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-REPO="aws/aws-elastic-beanstalk-cli"
+REPO="scheenk/aws-elastic-beanstalk-cli"
 INSTALL_DIR="/usr/local/bin"
 
 OS=$(uname -s | tr '[:upper:]' '[:lower:]')
