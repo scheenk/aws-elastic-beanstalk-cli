@@ -32,7 +32,7 @@ jobs:
       - name: Build binary
         run: |
           echo "from ebcli.core.ebcore import main; main()" > eb_entry.py
-          pyinstaller --onefile --name eb-${{ matrix.name }} \
+          pyinstaller --onedir --name eb \
             --hidden-import ebcli.core.ebcore \
             --hidden-import ebcli.controllers \
             --hidden-import cement.ext.ext_dummy \
@@ -46,26 +46,27 @@ jobs:
             --copy-metadata botocore \
             --copy-metadata setuptools \
             eb_entry.py
+          tar czf dist/eb-${{ matrix.name }}.tar.gz -C dist eb
         shell: bash
 
       - name: Smoke test (Unix)
         if: runner.os != 'Windows'
         run: |
-          ./dist/eb-${{ matrix.name }} --version
-          ./dist/eb-${{ matrix.name }} --help
+          ./dist/eb/eb --version
+          ./dist/eb/eb --help
         shell: bash
 
       - name: Smoke test (Windows)
         if: runner.os == 'Windows'
         run: |
-          ./dist/eb-${{ matrix.name }}.exe --version
-          ./dist/eb-${{ matrix.name }}.exe --help
+          ./dist/eb/eb.exe --version
+          ./dist/eb/eb.exe --help
         shell: bash
 
       - uses: actions/upload-artifact@v4
         with:
           name: eb-${{ matrix.name }}
-          path: dist/eb-${{ matrix.name }}*
+          path: dist/eb-${{ matrix.name }}.tar.gz
 
   release:
     needs: build
